@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Line } from "react-chartjs-2";
 import Fade from "react-reveal/Fade";
-import { Jumbotron, Button } from "reactstrap";
+import { Jumbotron } from "reactstrap";
 import { Link } from "react-router-dom";
 
 import "../../App.css";

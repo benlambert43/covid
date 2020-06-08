@@ -4,10 +4,9 @@ import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
+
   //UncontrolledDropdown,
   //DropdownToggle,
   //DropdownMenu,
@@ -25,24 +24,25 @@ function App() {
   const toggle = () => setIsOpen(!isOpen);
   return (
     <Router>
-      <Navbar color="light" light expand="md">
-        <Link to="/covid/" className="navbar-brand">
-          Covid-19
-        </Link>
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
-            <NavItem>
-              <Link to="/covid/perstate" className="nav-link">
-                Per State Data
-              </Link>
-            </NavItem>
-            <NavItem>
-              <Link to="/covid/about" className="nav-link">
-                About
-              </Link>
-            </NavItem>
-            {/*
+      <div>
+        <Navbar color="light" light expand="md">
+          <Link to="/covid/" className="navbar-brand">
+            Covid-19
+          </Link>
+          <NavbarToggler onClick={toggle} />
+          <Collapse isOpen={isOpen} navbar>
+            <Nav className="mr-auto" navbar>
+              <NavItem>
+                <Link to="/covid/perstate" className="nav-link">
+                  Per State Data
+                </Link>
+              </NavItem>
+              <NavItem>
+                <Link to="/covid/about" className="nav-link">
+                  About
+                </Link>
+              </NavItem>
+              {/*
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
                   More Information
@@ -55,13 +55,17 @@ function App() {
                 </DropdownMenu>
               </UncontrolledDropdown>
              */}
-          </Nav>
-          <NavbarText>Information</NavbarText>
-        </Collapse>
-      </Navbar>
-      <Route path="/covid/perstate" exact component={PerState} />
-      <Route path="/covid/about" exact component={About} />
-      <Route path="/covid/" exact component={Home} />
+            </Nav>
+
+            <NavbarText>Information</NavbarText>
+          </Collapse>
+        </Navbar>
+        <Switch>
+          <Route path="/covid/perstate" exact component={PerState} />
+          <Route path="/covid/about" exact component={About} />
+          <Route path="/covid/" exact component={Home} />
+        </Switch>
+      </div>
     </Router>
   );
 }

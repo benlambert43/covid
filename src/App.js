@@ -10,9 +10,9 @@ function App() {
   return (
     <Router>
       <MyNav />
-      <Route path="/covid-19/perstate" component={PerState} />
-      <Route path="/covid-19/about" component={About} />
-      <Route path="/covid-19/" component={Home} />
+      <Route path="/covid/perstate" component={PerState} />
+      <Route path="/covid/about" component={About} />
+      <Route path="/covid/" component={Home} />
     </Router>
   );
 }

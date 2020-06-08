@@ -22,15 +22,15 @@ const MyNav = (props) => {
   return (
     <div>
       <Navbar color="light" light expand="md">
-        <NavbarBrand href="/covid-19/">Covid-19 US Data</NavbarBrand>
+        <NavbarBrand href="/covid/">Covid-19 US Data</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="/covid-19/perstate">Per State Data</NavLink>
+              <NavLink href="/covid/perstate">Per State Data</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/covid-19/about">About</NavLink>
+              <NavLink href="/covid/about">About</NavLink>
             </NavItem>
             {/*
               <UncontrolledDropdown nav inNavbar>

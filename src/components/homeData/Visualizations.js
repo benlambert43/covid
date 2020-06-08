@@ -227,7 +227,7 @@ function App() {
           <hr className="my-2" />
           <p>Individual US state data is also available</p>
           <p className="lead">
-            <Button href="/covid-19/perstate" color="primary">
+            <Button href="/covid/perstate" color="primary">
               Data by US State
             </Button>
           </p>

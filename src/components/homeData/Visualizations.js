@@ -3,6 +3,7 @@ import axios from "axios";
 import { Line } from "react-chartjs-2";
 import Fade from "react-reveal/Fade";
 import { Jumbotron, Button } from "reactstrap";
+import { Link } from "react-router-dom";
 
 import "../../App.css";
 
@@ -226,10 +227,8 @@ function App() {
           </p>
           <hr className="my-2" />
           <p>Individual US state data is also available</p>
-          <p className="lead">
-            <Button href="/covid/perstate" color="primary">
-              Data by US State
-            </Button>
+          <p className="my-2">
+            <Link to="/covid/perstate"> Data by US State</Link>
           </p>
         </Jumbotron>
       </Fade>

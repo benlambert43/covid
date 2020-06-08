@@ -8,6 +8,7 @@ import {
   NavItem,
   NavbarText,
 } from "reactstrap";
+
 import About from "./components/About";
 import PerState from "./components/PerState";
 import Home from "./components/Home";
@@ -22,7 +23,7 @@ function App() {
       <div>
         <Navbar color="light" light expand="md">
           <Link to="/" className="navbar-brand">
-            COVID-19 US Nationwide
+            COVID-19 US Data
           </Link>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>

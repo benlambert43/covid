@@ -4,6 +4,12 @@ import { Line } from "react-chartjs-2";
 import Fade from "react-reveal/Fade";
 import { Jumbotron } from "reactstrap";
 import { Link } from "react-router-dom";
+import {
+  ListGroup,
+  ListGroupItem,
+  ListGroupItemHeading,
+  ListGroupItemText,
+} from "reactstrap";
 
 import "../../App.css";
 
@@ -17,6 +23,7 @@ function App() {
   const [currentHospitalization, setCurrentHospitalization] = useState([]);
   const [inIcuCurrently, setInIcuCurrently] = useState([]);
   const [recovered, setRecovered] = useState([]);
+  const [all, setAll] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -55,6 +62,7 @@ function App() {
       setRecovered(
         resultHistorical.data.map(({ recovered }) => recovered).reverse()
       );
+      setAll(resultHistorical.data);
     };
     fetchData();
   }, []);
@@ -213,8 +221,18 @@ function App() {
 
   //console.log(historicalPositive);
   //console.log(historicalDate);
-  //console.log(historical);
+  console.log(all[0]);
   //console.log(positiveIncrease);
+  const currentHospitalizationsFromYesterday = () => {
+    const e = all[0].hospitalizedCurrently - all[1].hospitalizedCurrently;
+    if (e > 0) {
+      return `an increase of ${Math.abs(e)}`;
+    }
+    if (e < 0) {
+      return `a decrease of ${Math.abs(e)}`;
+    }
+    return ` which did not change `;
+  };
 
   return (
     <div>
@@ -231,6 +249,40 @@ function App() {
             <Link to="/covid/perstate"> Data by US State</Link>
           </p>
         </Jumbotron>
+        <ListGroup>
+          <ListGroupItem>
+            <ListGroupItemHeading>
+              Current Total Number of Positive Cases
+            </ListGroupItemHeading>
+            <ListGroupItemText>
+              <b>{all[0] ? all[0].positive : <b></b>}</b>, an increase of{" "}
+              {all[0] ? all[0].positiveIncrease : <b></b>} more than yesterday.
+            </ListGroupItemText>
+          </ListGroupItem>
+          <ListGroupItem>
+            <ListGroupItemHeading>
+              Current Hospitalizations
+            </ListGroupItemHeading>
+            <ListGroupItemText>
+              <b>{all[0] ? all[0].hospitalizedCurrently : <b></b>}</b>,{" "}
+              {all[0] ? currentHospitalizationsFromYesterday() : <b></b>} from
+              yesterday.
+            </ListGroupItemText>
+          </ListGroupItem>
+          <ListGroupItem>
+            <ListGroupItemHeading>Current Mortality Rate</ListGroupItemHeading>
+            <ListGroupItemText>
+              Confirmed Positive Cases:{" "}
+              <b>{all[0] ? all[0].death / all[0].positive : <b></b>}</b>
+              <br />
+              Total: <b>{all[0] ? all[0].death / all[0].total : <b></b>}</b>
+            </ListGroupItemText>
+          </ListGroupItem>
+        </ListGroup>
+        <br></br>
+        <br></br>
+        <hr></hr>
+        <br></br>
       </Fade>
       <div className="App">
         <Fade bottom cascade>

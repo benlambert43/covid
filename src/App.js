@@ -1,11 +1,5 @@
 import React, { useState } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  BrowserRouter,
-} from "react-router-dom";
+import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
 import {
   Collapse,
   Navbar,
@@ -29,10 +23,10 @@ function App() {
 
   const toggle = () => setIsOpen(!isOpen);
   return (
-    <BrowserRouter>
+    <Router>
       <div>
         <Navbar color="light" light expand="md">
-          <Link to="/covid/" className="navbar-brand">
+          <Link to="/" className="navbar-brand">
             Covid-19
           </Link>
           <NavbarToggler onClick={toggle} />
@@ -69,10 +63,10 @@ function App() {
         <Switch>
           <Route path="/covid/perstate" exact component={PerState} />
           <Route path="/covid/about" exact component={About} />
-          <Route path="/covid/" exact component={Home} />
+          <Route path="/" exact component={Home} />
         </Switch>
       </div>
-    </BrowserRouter>
+    </Router>
   );
 }
 

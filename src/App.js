@@ -38,7 +38,9 @@ function App() {
               </Link>
             </NavItem>
             <NavItem>
-              <NavLink to="/covid/about">About</NavLink>
+              <Link to="/covid/about" className="nav-link">
+                About
+              </Link>
             </NavItem>
             {/*
               <UncontrolledDropdown nav inNavbar>
@@ -57,9 +59,9 @@ function App() {
           <NavbarText>Information</NavbarText>
         </Collapse>
       </Navbar>
-      <Route path="/covid/perstate" component={PerState} />
-      <Route path="/covid/about" component={About} />
-      <Route path="/covid/" component={Home} />
+      <Route path="/covid/perstate" exact component={PerState} />
+      <Route path="/covid/about" exact component={About} />
+      <Route path="/covid/" exact component={Home} />
     </Router>
   );
 }

@@ -11,10 +11,10 @@ import VisualizationsPerState from "./perStateData/VisualizationsPerState";
 
 const PerState = () => {
   const stateDropdownArray = [
-    "AL",
     "AK",
-    "AZ",
+    "AL",
     "AR",
+    "AZ",
     "CA",
     "CO",
     "CT",

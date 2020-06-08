@@ -220,7 +220,7 @@ function App() {
     <div>
       <Fade>
         <Jumbotron>
-          <h1 className="display-5">Covid-19 Data Visualization</h1>
+          <h1 className="display-5">Covid-19 US National Data Visualization</h1>
           <p className="lead">
             On this page you will find data pertaining to cases of COVID-19
             across the US

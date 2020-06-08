@@ -6,11 +6,6 @@ import {
   NavbarToggler,
   Nav,
   NavItem,
-
-  //UncontrolledDropdown,
-  //DropdownToggle,
-  //DropdownMenu,
-  //DropdownItem,
   NavbarText,
 } from "reactstrap";
 import About from "./components/About";
@@ -27,7 +22,7 @@ function App() {
       <div>
         <Navbar color="light" light expand="md">
           <Link to="/" className="navbar-brand">
-            Covid-19
+            COVID-19 US Nationwide
           </Link>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>

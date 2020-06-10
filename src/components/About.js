@@ -14,7 +14,27 @@ const About = () => {
           </p>
           <hr className="my-2" />
           <br />
-          github: https://github.com/benlambert43/covid
+
+          <p className="my-2">
+            Open Source Repository:{" "}
+            <a
+              href="https://github.com/benlambert43/covid"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://github.com/benlambert43/covid
+            </a>
+          </p>
+          <p className="my-2">
+            API Provided by{" "}
+            <a
+              href="https://covidtracking.com/api"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://covidtracking.com/api
+            </a>
+          </p>
         </Jumbotron>
       </Fade>
     </div>

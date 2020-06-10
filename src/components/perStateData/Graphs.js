@@ -222,7 +222,7 @@ function Graphs(props) {
   //console.log(positiveIncrease);
 
   return (
-    <div className="App">
+    <div className="App" style={{ marginRight: "5%", marginLeft: "5%" }}>
       <Fade bottom cascade>
         <div>
           <div>

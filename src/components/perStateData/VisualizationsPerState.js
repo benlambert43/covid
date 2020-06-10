@@ -7,8 +7,17 @@ const VisualizationsPerState = (props) => {
   return (
     <div style={{ margin: "1%" }}>
       <Fade>
-        <h1>{props.state}</h1>
-        <Graphs state={props.state} />
+        <div
+          className="App"
+          style={{ marginTop: "5%", marginRight: "5%", marginLeft: "5%" }}
+        >
+          <h1>
+            Data By State: <b>{props.state}</b>
+          </h1>
+        </div>
+        <div style={{ marginTop: "5%" }}>
+          <Graphs state={props.state} />
+        </div>
       </Fade>
     </div>
   );

@@ -241,7 +241,9 @@ function App() {
           <h1 className="display-5">Covid-19 US National Data Visualization</h1>
           <p className="lead">
             On this page you will find data pertaining to cases of COVID-19
-            across the US
+            across the US including visualizations for positive cases, daily
+            increase in positive cases and trends in healthcare status
+            <br />
           </p>
           <hr className="my-2" />
           <p>Individual US state data is also available</p>
@@ -284,7 +286,7 @@ function App() {
         <hr></hr>
         <br></br>
       </Fade>
-      <div className="App">
+      <div className="App" style={{ marginRight: "5%", marginLeft: "5%" }}>
         <Fade bottom cascade>
           <div>
             <div>

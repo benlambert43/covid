@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Collapse, Navbar, NavbarToggler, Nav, NavItem } from "reactstrap";
-
 import About from "./components/About";
 import PerState from "./components/PerState";
 import Home from "./components/Home";
 import "./App.css";
 import Upcoming from "./components/Upcoming";
+import Analysis from "./components/Analysis";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,6 +25,11 @@ function App() {
               <NavItem>
                 <Link to="/covid/perstate" className="nav-link">
                   Per State Data
+                </Link>
+              </NavItem>
+              <NavItem>
+                <Link to="/covid/analysis" className="nav-link">
+                  Data Point Analysis
                 </Link>
               </NavItem>
               <NavItem>
@@ -62,7 +67,7 @@ function App() {
           <Route path="/covid/perstate" exact component={PerState} />
           <Route path="/covid/about" exact component={About} />
           <Route path="/covid/upcoming" exact component={Upcoming} />
-
+          <Route path="/covid/analysis" exact component={Analysis} />
           <Route path="/" exact component={Home} />
         </Switch>
       </div>

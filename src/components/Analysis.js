@@ -10,7 +10,11 @@ const Analysis = () => {
       <Fade>
         <Jumbotron>
           <h1 className="display-5"> Data Point Analysis </h1>
-          <p className="lead"></p>
+          <p className="lead">
+            In development. This page will display news headlines for the
+            current date as well as the headlines from 3 weeks ago (pertaining
+            to Covid-19 policy actions)
+          </p>
           <hr className="my-2" />
           <br />
 

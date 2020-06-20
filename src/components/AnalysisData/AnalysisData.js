@@ -61,78 +61,82 @@ const AnalysisData = () => {
           </div>
         </Col>
         <br />
-        {all.map((item) => (
-          <Col xs="auto" key={item.date}>
-            <div style={{ marginTop: "3%" }}>
-              <Card body>
-                <CardTitle>
-                  <b>{customDateFormatter(item.date)}</b>
-                </CardTitle>
-                <br />
-                <hr />
-                <Row>
-                  <Col xs="6">
-                    <CardText>Death: </CardText>
-                  </Col>
-                  <Col>{item.death}</Col>
-                </Row>
-                <hr />
-                <Row>
-                  <Col xs="6">Increase in deaths from yesterday:</Col>
-                  <Col>{item.deathIncrease}</Col>
-                </Row>
-                <hr />
-                <Row>
-                  <Col xs="6">Hospitalized: </Col>
-                  <Col>{item.hospitalized}</Col>
-                </Row>
-                <hr />
-                <Row>
-                  <Col xs="6">Currently Hospitalized:</Col>
-                  <Col>{item.hospitalizedCurrently}</Col>
-                </Row>
-                <hr />
-                <Row>
-                  <Col xs="6">
-                    Increase in hospitalizations from yesterday:{" "}
-                  </Col>
-                  <Col>{item.hospitalizedIncrease}</Col>
-                </Row>
-                <hr />
-                <Row>
-                  <Col xs="6">Currently in ICU: </Col>
-                  <Col>{item.inIcuCurrently}</Col>
-                </Row>
-                <hr />
-                <Row>
-                  <Col xs="6">On ventilator currently: </Col>
-                  <Col>{item.onVentilatorCurrently}</Col>
-                </Row>
-                <hr />
-                <Row>
-                  <Col xs="6">Positive Cases: </Col>
-                  <Col>{item.positive}</Col>
-                </Row>
-                <hr />
-                <Row>
-                  <Col xs="6">Increase in positive cases from yesterday: </Col>
-                  <Col>{item.positiveIncrease}</Col>
-                </Row>
-                <hr />
-                <Row>
-                  <Col xs="6">Recovered: </Col>
-                  <Col>{item.recovered}</Col>
-                </Row>
-                <hr />
-                <Row>
-                  <Col xs="6">Total: </Col>
-                  <Col>{item.total}</Col>
-                </Row>
-                <hr />
-              </Card>
-            </div>
-          </Col>
-        ))}
+        <div>
+          {all.map((item) => (
+            <Col xs="auto" key={item.date}>
+              <div style={{ marginTop: "3%" }}>
+                <Card body>
+                  <CardTitle>
+                    <b>{customDateFormatter(item.date)}</b>
+                  </CardTitle>
+                  <br />
+                  <hr />
+                  <Row>
+                    <Col xs="6">
+                      <CardText>Death: </CardText>
+                    </Col>
+                    <Col>{item.death}</Col>
+                  </Row>
+                  <hr />
+                  <Row>
+                    <Col xs="6">Increase in deaths from yesterday:</Col>
+                    <Col>{item.deathIncrease}</Col>
+                  </Row>
+                  <hr />
+                  <Row>
+                    <Col xs="6">Hospitalized: </Col>
+                    <Col>{item.hospitalized}</Col>
+                  </Row>
+                  <hr />
+                  <Row>
+                    <Col xs="6">Currently Hospitalized:</Col>
+                    <Col>{item.hospitalizedCurrently}</Col>
+                  </Row>
+                  <hr />
+                  <Row>
+                    <Col xs="6">
+                      Increase in hospitalizations from yesterday:{" "}
+                    </Col>
+                    <Col>{item.hospitalizedIncrease}</Col>
+                  </Row>
+                  <hr />
+                  <Row>
+                    <Col xs="6">Currently in ICU: </Col>
+                    <Col>{item.inIcuCurrently}</Col>
+                  </Row>
+                  <hr />
+                  <Row>
+                    <Col xs="6">On ventilator currently: </Col>
+                    <Col>{item.onVentilatorCurrently}</Col>
+                  </Row>
+                  <hr />
+                  <Row>
+                    <Col xs="6">Positive Cases: </Col>
+                    <Col>{item.positive}</Col>
+                  </Row>
+                  <hr />
+                  <Row>
+                    <Col xs="6">
+                      Increase in positive cases from yesterday:{" "}
+                    </Col>
+                    <Col>{item.positiveIncrease}</Col>
+                  </Row>
+                  <hr />
+                  <Row>
+                    <Col xs="6">Recovered: </Col>
+                    <Col>{item.recovered}</Col>
+                  </Row>
+                  <hr />
+                  <Row>
+                    <Col xs="6">Total: </Col>
+                    <Col>{item.total}</Col>
+                  </Row>
+                  <hr />
+                </Card>
+              </div>
+            </Col>
+          ))}
+        </div>
       </Fade>
     );
   };

@@ -10,6 +10,7 @@ import {
   ListGroupItemHeading,
   ListGroupItemText,
 } from "reactstrap";
+import { Toast, ToastBody, ToastHeader } from "reactstrap";
 
 import "../../App.css";
 
@@ -236,6 +237,19 @@ function App() {
 
   return (
     <div>
+      <div className="p-3 bg-info my-2 rounded">
+        <Toast>
+          <ToastHeader>Data Point Analysis is in Development</ToastHeader>
+          <ToastBody>
+            <Link to="/covid/analysis" className="nav-link">
+              Data Point Analysis
+            </Link>
+            <Link to="/covid/upcoming" className="nav-link">
+              Read about development goals
+            </Link>
+          </ToastBody>
+        </Toast>
+      </div>
       <Fade>
         <Jumbotron>
           <h1 className="display-5">Covid-19 US National Data Visualization</h1>

@@ -2,6 +2,7 @@ import React from "react";
 import "../App.css";
 import { Jumbotron } from "reactstrap";
 import Fade from "react-reveal/Fade";
+import AnalysisData from "./AnalysisData/AnalysisData";
 
 const Analysis = () => {
   return (
@@ -15,6 +16,9 @@ const Analysis = () => {
 
           <div className="my-2"></div>
         </Jumbotron>
+        <div>
+          <AnalysisData />
+        </div>
       </Fade>
     </div>
   );

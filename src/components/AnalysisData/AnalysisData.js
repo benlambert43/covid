@@ -14,7 +14,6 @@ const AnalysisData = () => {
         "https://covidtracking.com/api/v1/us/daily.json"
       );
       setAll(result.data);
-      //all.sort((a, b) => (a.positiveIncrease < b.positiveIncrease ? 1 : -1));
     };
     fetchData();
   }, []);
@@ -37,6 +36,8 @@ const AnalysisData = () => {
   };
 
   const notInFlight = () => {
+    all.sort((a, b) => (a.positiveIncrease < b.positiveIncrease ? 1 : -1));
+
     //console.log(all, " returned.");
 
     return (

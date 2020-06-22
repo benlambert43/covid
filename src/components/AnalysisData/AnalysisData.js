@@ -42,7 +42,7 @@ const AnalysisData = () => {
 
     return (
       <Fade bottom>
-        {all.map((item, index) => (
+        {all.map((item) => (
           <Col xs="auto" key={item.date}>
             <div style={{ marginTop: "3%" }}>
               <Card body>

@@ -42,12 +42,14 @@ const AnalysisData = () => {
 
     return (
       <div>
-        {all.map((item) => (
+        {all.map((item, index) => (
           <Col xs="auto" key={item.date}>
             <div style={{ marginTop: "3%" }}>
               <Card body>
                 <h2>
-                  <b>{customDateFormatter(item.date)}</b>
+                  <b>
+                    {index + 1}) {customDateFormatter(item.date)}
+                  </b>
                 </h2>
                 <br />
                 Statistics for {customDateFormatter(item.date)}:

@@ -13,7 +13,9 @@ const Analysis = () => {
           <p className="lead">
             In development. This page will display news headlines for the
             current date as well as the headlines from 3 weeks ago (pertaining
-            to Covid-19 policy actions)
+            to Covid-19 policy actions). There will be an option to sort by date
+            in the future, however for now the data is sorted by increase in
+            positive cases since the previous day.
           </p>
           <hr className="my-2" />
           <br />

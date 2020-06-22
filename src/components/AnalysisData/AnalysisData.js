@@ -40,7 +40,7 @@ const AnalysisData = () => {
     //console.log(all, " returned.");
 
     return (
-      <Fade bottom>
+      <div>
         {all.map((item) => (
           <Col xs="auto" key={item.date}>
             <div style={{ marginTop: "3%" }}>
@@ -118,7 +118,7 @@ const AnalysisData = () => {
             </div>
           </Col>
         ))}
-      </Fade>
+      </div>
     );
   };
 

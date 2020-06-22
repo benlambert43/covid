@@ -47,9 +47,7 @@ const AnalysisData = () => {
             <div style={{ marginTop: "3%" }}>
               <Card body>
                 <h2>
-                  <b>
-                    {index + 1}) {customDateFormatter(item.date)}
-                  </b>
+                  <b>{customDateFormatter(item.date)}</b>
                 </h2>
                 <br />
                 Statistics for {customDateFormatter(item.date)}:

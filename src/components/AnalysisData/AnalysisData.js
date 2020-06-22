@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Fade from "react-reveal/Fade";
 import axios from "axios";
-import { Spinner, Row, Container, Button } from "reactstrap";
-import { Card, CardTitle, CardText, Col } from "reactstrap";
+import { Spinner, Row } from "reactstrap";
+import { Card, CardText, Col } from "reactstrap";
 import "../../App.css";
 
 const AnalysisData = () => {
   const [all, setAll] = useState([]);
-  const [dateOrder, setDateOrder] = useState("Descending");
 
   useEffect(() => {
     const fetchData = async () => {

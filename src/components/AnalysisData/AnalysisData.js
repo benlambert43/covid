@@ -11,10 +11,12 @@ import {
   CardBody,
   CardDeck,
   CardColumns,
+  Container,
 } from "reactstrap";
 import { Card, CardText, Col } from "reactstrap";
 import "../../App.css";
 import NewsHeadline from "./NewsHeadline";
+import "./img.css";
 
 const AnalysisData = () => {
   const [all, setAll] = useState([]);
@@ -76,78 +78,99 @@ const AnalysisData = () => {
           <Col xs="auto" key={item.date}>
             <div style={{ marginTop: "3%" }}>
               <Card body>
-                <h2>
-                  <b>
-                    {index + 1}) {customDateFormatter(item.date)}
-                  </b>
-                </h2>
-                <br />
-                {
-                  //<NewsHeadline date={item.date} />
-                }
-                <CardText>
-                  News Headlines for {customDateFormatter(item.date)}:
-                </CardText>
-                <Row>
-                  <Col xs="6">
-                    <Button
-                      color="primary"
-                      onClick={() => {
-                        dateClickHandle(item.date, index + 1);
-                      }}
-                    >
-                      See Covid-19 News for this Date
-                    </Button>
-                  </Col>
-                </Row>
-                {renderStory === index + 1 && fetchStory && !articleInFlight ? (
-                  <div>
-                    <br />
-                    <br />
-                    <CardColumns>
-                      {fetchStory.response.docs.map((article) => (
-                        <Card key={article.headline.main}>
-                          {article.multimedia[0] ? (
-                            <div>
-                              <CardImg
-                                alt="Card image cap"
-                                top
-                                width="100%"
-                                src={`https://nyt.com/${article.multimedia[0].url}`}
-                              />
-                            </div>
-                          ) : (
-                            <div></div>
-                          )}
+                <div>
+                  <h2>
+                    <b>
+                      {index + 1}) {customDateFormatter(item.date)}
+                    </b>
+                  </h2>
+                  <br />
+                  {
+                    //<NewsHeadline date={item.date} />
+                  }
+                  <Button
+                    color="primary"
+                    onClick={() => {
+                      dateClickHandle(item.date, index + 1);
+                    }}
+                  >
+                    See Covid-19 News for this Date
+                  </Button>
+                  {renderStory === index + 1 &&
+                  fetchStory &&
+                  !articleInFlight ? (
+                    <div>
+                      <br />
+                      <br />
+                      <div>
+                        News Headlines for {customDateFormatter(item.date)}:
+                        <hr></hr>
+                        <br />
+                        <br />
+                        <Card body>
+                          <Container fluid>
+                            <Row>
+                              {fetchStory.response.docs.map((article) => (
+                                <Card
+                                  key={article.headline.main}
+                                  style={{
+                                    maxHeight: "30rem",
+                                    maxWidth: "20rem",
+                                    margin: "1%",
+                                  }}
+                                >
+                                  {article.multimedia[0] ? (
+                                    <CardImg
+                                      alt="Card image cap"
+                                      top
+                                      width="100%"
+                                      src={`https://nyt.com/${article.multimedia[0].url}`}
+                                      style={{
+                                        maxHeight: "12rem",
+                                        maxWidth: "20rem",
+                                      }}
+                                    />
+                                  ) : (
+                                    <div className="App">
+                                      <br></br>
+                                      <p>no image found.</p>
+                                      <br />
+                                    </div>
+                                  )}
 
-                          <CardBody>
-                            <CardTitle>
-                              <a
-                                href={article.web_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                {article.headline.main}
-                              </a>
-                            </CardTitle>
-                          </CardBody>
+                                  <CardBody>
+                                    <CardTitle>
+                                      <a
+                                        href={article.web_url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                      >
+                                        {article.headline.main}
+                                      </a>
+                                    </CardTitle>
+                                  </CardBody>
+                                </Card>
+                              ))}
+                            </Row>
+                          </Container>
                         </Card>
-                      ))}
-                    </CardColumns>
-                    <br />
-                    <br />
-                  </div>
-                ) : renderStory === index + 1 && articleInFlight ? (
-                  <div>
-                    <br />
-                    <br />
-                    <Spinner />
-                    <br />
-                    <br />
-                  </div>
-                ) : (
-                  <div></div>
-                )}
+                      </div>
+                      <br />
+                      <br />
+                      <br />
+                    </div>
+                  ) : renderStory === index + 1 && articleInFlight ? (
+                    <div>
+                      <br />
+                      <br />
+                      <Spinner />
+                      <br />
+                      <br />
+                    </div>
+                  ) : (
+                    <div></div>
+                  )}{" "}
+                </div>
                 <br />
                 Statistics for {customDateFormatter(item.date)}:
                 <hr />

@@ -1,12 +1,26 @@
 import React, { useState, useEffect } from "react";
 import Fade from "react-reveal/Fade";
 import axios from "axios";
-import { Spinner, Row } from "reactstrap";
+import {
+  Spinner,
+  Row,
+  Button,
+  CardTitle,
+  CardGroup,
+  CardImg,
+  CardBody,
+  CardDeck,
+  CardColumns,
+} from "reactstrap";
 import { Card, CardText, Col } from "reactstrap";
 import "../../App.css";
+import NewsHeadline from "./NewsHeadline";
 
 const AnalysisData = () => {
   const [all, setAll] = useState([]);
+  const [renderStory, setRenderStory] = useState();
+  const [articleInFlight, setArticleInFlight] = useState(false);
+  const [fetchStory, setFetchStory] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,8 +40,24 @@ const AnalysisData = () => {
     return `${month}/${day}/${year}`;
   };
 
+  const dateClickHandle = async (date, index) => {
+    setArticleInFlight(true);
+    setRenderStory(index);
+    console.log(date);
+    console.log(index);
+    dateClickHandleHelper(date);
+  };
+
+  const dateClickHandleHelper = async (date) => {
+    const result = await axios(
+      `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=Coronavirus (2019-nCoV)&q=United States Politics and Government&facet_field=day_of_week&facet=true&begin_date=${date}&end_date=${date}&api-key=AAvZ65RQie8WTe3U2W097GZ6bAlelvN4`
+    );
+    setFetchStory(result.data);
+    setArticleInFlight(false);
+  };
+
   const inFlight = () => {
-    console.log(all, " in flight.");
+    //console.log(all, " in flight.");
     return (
       <div className="App">
         <Spinner />
@@ -51,6 +81,73 @@ const AnalysisData = () => {
                     {index + 1}) {customDateFormatter(item.date)}
                   </b>
                 </h2>
+                <br />
+                {
+                  //<NewsHeadline date={item.date} />
+                }
+                <CardText>
+                  News Headlines for {customDateFormatter(item.date)}:
+                </CardText>
+                <Row>
+                  <Col xs="6">
+                    <Button
+                      color="primary"
+                      onClick={() => {
+                        dateClickHandle(item.date, index + 1);
+                      }}
+                    >
+                      See Covid-19 News for this Date
+                    </Button>
+                  </Col>
+                </Row>
+                {renderStory === index + 1 && fetchStory && !articleInFlight ? (
+                  <div>
+                    <br />
+                    <br />
+                    <CardColumns>
+                      {fetchStory.response.docs.map((article) => (
+                        <Card key={article.headline.main}>
+                          {article.multimedia[0] ? (
+                            <div>
+                              <CardImg
+                                alt="Card image cap"
+                                top
+                                width="100%"
+                                src={`https://nyt.com/${article.multimedia[0].url}`}
+                              />
+                            </div>
+                          ) : (
+                            <div></div>
+                          )}
+
+                          <CardBody>
+                            <CardTitle>
+                              <a
+                                href={article.web_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                {article.headline.main}
+                              </a>
+                            </CardTitle>
+                          </CardBody>
+                        </Card>
+                      ))}
+                    </CardColumns>
+                    <br />
+                    <br />
+                  </div>
+                ) : renderStory === index + 1 && articleInFlight ? (
+                  <div>
+                    <br />
+                    <br />
+                    <Spinner />
+                    <br />
+                    <br />
+                  </div>
+                ) : (
+                  <div></div>
+                )}
                 <br />
                 Statistics for {customDateFormatter(item.date)}:
                 <hr />

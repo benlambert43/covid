@@ -68,8 +68,6 @@ const AnalysisData = () => {
   };
 
   const notInFlight = () => {
-    all.sort((a, b) => (a.positiveIncrease < b.positiveIncrease ? 1 : -1));
-
     //console.log(all, " returned.");
 
     return (
